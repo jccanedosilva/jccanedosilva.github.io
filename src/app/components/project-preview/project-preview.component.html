@@ -1,0 +1,38 @@
+<div style="display: flex; align-items: center; align-content: center; flex-direction: column">
+
+
+<div class="project-card">
+    <img [src]="project.imageUrl"  class="project-image">
+    
+    <div class="project-title-overlay">
+      <label class="project-title">{{ project.title }}</label>
+    </div>
+</div>
+  
+    <div class="project-info-below">
+        <div class="project-info">
+
+            <div class="project-stack">
+                <div *ngFor="let project of project.stack" class="stack-item">
+                  <img src="images/circle.png" style="width: 6px; height: 6px;"/>
+                    <label class="stack-label">{{project}}</label>
+                </div>
+    
+            </div>
+            <div class="desc-div">
+                <label class="description">{{ project.description }}</label>
+            </div>
+        </div>
+       
+      
+      
+      <div class="project-buttons">
+        <a *ngIf="project.githubUrl" [href]="project.githubUrl">
+          <img src="images/github.png" alt="GitHub" class="icon">
+        </a>
+        <a *ngIf="project.playStoreUrl" [href]="project.playStoreUrl" >
+          <img src="images/play_store.png" alt="Play Store" class="icon">
+        </a>
+      </div>
+    </div>
+  </div>

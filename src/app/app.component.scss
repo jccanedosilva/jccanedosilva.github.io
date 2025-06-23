@@ -1,0 +1,172 @@
+@import '../styles/colors';
+/* --- Reseteo Básico y Contenedor Principal --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el ancho total */
+    font-family: sans-serif; /* Fuente base */
+    min-height: 100vh; /* Para que el body ocupe al menos toda la altura de la vista */
+    display: flex; /* Para que el router-outlet no se coma el espacio */
+    flex-direction: column;
+  }
+  
+  .portfolio-layout {
+    width: 100%;
+    max-width: 1000px; /* Ancho máximo para el contenido, evita que se estire demasiado en pantallas muy grandes */
+    margin: 0 auto; /* Centra el contenedor en la pantalla */
+    padding: 20px;
+  
+    padding-top: 0; /* Relleno general para que el contenido no pegue a los bordes */
+    display: flex; /* Usamos Flexbox para organizar las secciones verticalmente */
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 30px; /* Espacio entre cada sección (header, about-me, education, etc.) */
+    /* Asegura que el layout ocupe al menos toda la altura de la vista */
+    box-sizing: border-box; /* Incluye padding en el width total */
+  }
+  
+  /* Para el router-outlet, si es que lo tienes al mismo nivel que el layout */
+  router-outlet {
+    display: none; /* Si no lo usas para contenido en esta página, ocultarlo */
+  }
+  
+  /* --- Estilos para Secciones --- */
+ 
+  
+  .stack-carousel-container {
+    padding: 0; /* Ya tenemos padding en .portfolio-layout */
+     /* Centra el texto dentro de estas secciones si es necesario */
+  }
+
+  .content-section {
+    border-radius: 25px;
+    padding: 6px;
+    background-color: $secondary-container;
+  }
+  
+  /* --- Estilos de Texto --- */
+  .name-heading {
+    font-size: 40px; /* Tamaño de fuente responsivo */
+    font-weight: bold;
+    width: 100%;
+    color: $on-primary-container;
+    
+    margin-bottom: 5px;
+  }
+
+  .header-section {
+    background-color: $primary-container;
+    border-radius: 0px 0px 20px 20px;
+    padding-top: 20px;
+    padding-bottom: 8px;
+    text-align: center;
+  }
+  
+  .charge-text {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .section-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: $tertiary; /* Color de acento */
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 8px;
+    text-align: left !important; /* Títulos alineados a la izquierda */
+  }
+  
+  .stack-title { /* Si el título "Mi stack" necesita un centrado especial */
+    text-align: center;
+    margin-top: 10px; /* Ya lo tenías así */
+  }
+  
+  .section-content {
+    
+    padding: 10px;
+    font-size: 1.1em;
+    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+    color: $on-secondary-container;
+    text-align: justify; /* Justifica el texto para una apariencia más limpia */
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  
+  /* Asegurar que las imágenes dentro de cualquier contenido se ajusten */
+  .section-content img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Para evitar espacios no deseados debajo de las imágenes */
+    margin: 10px 0;
+  }
+
+  .social-icon {
+    height: 30px;
+    width: 30px;
+  }
+  
+  .stack-label {
+    align-self: center;
+    justify-content: center;
+    font-size: 22px;
+    color: $on-surface;
+  }
+  /* --- Responsive Design con Media Queries --- */
+  
+  /* Para pantallas más pequeñas (ej. móviles) */
+  @media (max-width: 768px) {
+    .portfolio-layout {
+    
+      padding-top: 0; /* Menos padding en pantallas pequeñas */
+      gap: 20px; /* Menos espacio entre secciones */
+    }
+  
+    .social-icon {
+      height: 35px;
+      width: 35px;
+    }
+    .name-heading {
+      font-size: 2em;
+    }
+  
+    .charge-text {
+      font-size: 1em;
+      color: $on-tertiary-container;
+    }
+
+    .number-label{
+      font-size: 1em;
+    }
+  
+    .section-title {
+      font-size: 1.5em;
+      text-align: center; /* Centrar títulos en móviles si prefieres */
+    }
+  
+    .section-content {
+      font-size: 1em;
+      line-height: 1.5;
+      text-align: left; /* o justificado, según preferencia */
+    }
+  }
+  
+  /* Para pantallas muy pequeñas (ej. teléfonos muy antiguos) */
+  @media (max-width: 480px) {
+    .portfolio-layout {
+      padding: 10px;
+      padding-top: 0;
+    }
+  
+    .social-icon {
+      height: 30px;
+      width: 30px;
+    }
+    .number-label{
+      font-size: 0.8em;
+    }
+    .name-heading {
+      font-size: 1.8em;
+    }
+  }
